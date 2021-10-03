@@ -1,10 +1,12 @@
-import PokemonModel from './Models/PokemonModel.js';
+import PokemonModel from '../Models/PokemonModel.js';
+
+
 const axios = require('axios').default;
 
 
-class ApiService {
+class PokemonService {
 
-    async GetAllPokemons(){
+    async all(){
 
         let pokemon = new PokemonModel;
         const response = await axios.get('https://pokeapi.co/api/v2/pokemon/');
@@ -22,4 +24,4 @@ class ApiService {
     }
 }
 
-export default ApiService;
+export default PokemonService;

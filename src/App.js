@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import view from './component/Test.js';
+import view from './Component/Test.js';
 import Welcome from "./pages/Welcome.js";
-import Error from './component/NotFound.js';
+import Error from './Component/NotFound.js';
 
 function App(){
 

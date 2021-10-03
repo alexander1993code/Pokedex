@@ -3,6 +3,7 @@ class PokemonModel {
     constructor(){
         this.name = null;
         this.url = null;
+        this.images = null;
         this.stats = null;
         this.types = null;
     }
@@ -14,9 +15,10 @@ class PokemonModel {
 
         // pok.url = object.url || object.moves.map( item =>move.name )
         pok.name = object.name;
-        pok.url = object.sprites;
-        pok.stats = object.stats;
-        pok.types = object.types;
+        pok.url = object.url;
+        pok.images = object.sprites || [];
+        pok.stats = object.stats || [];
+        pok.types = object.types || [];
         
         return pok;
     }
