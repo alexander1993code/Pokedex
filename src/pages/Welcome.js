@@ -1,6 +1,7 @@
 import React from "react";
 import PokemonService from '../Services/PokemonService.js';
 import BerriesServices from "../Services/BerriesService.js";
+import PokemonCard from "../Component/PokemonCard.jsx";
 
 
 class Welcome extends React.Component {
@@ -10,7 +11,9 @@ class Welcome extends React.Component {
         super(props);
 
         this.state = {
-            data: null
+            data: {
+                pokemon: []
+            }
         }
 
         this.service = new PokemonService();
@@ -23,9 +26,6 @@ class Welcome extends React.Component {
 
         const pokemon = await this.service.find(1);
         const berrie = await this.service2.all();
-        console.log(pokemon, berrie);
-
-        
 
         
 
@@ -34,7 +34,11 @@ class Welcome extends React.Component {
     }
     render(){
         return (
-            <h1></h1>
+            <>
+            <PokemonCard 
+                data={pokemon}/>
+            <h1>hola pato</h1>
+            </>
         );
     }
 }
