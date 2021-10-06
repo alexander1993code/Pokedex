@@ -13,12 +13,12 @@ class PokemonModel {
     getFromObject(object){
         const pok = new PokemonModel();
 
-        // pok.url = object.url || object.moves.map( item =>move.name )
-        pok.name = object.name;
-        pok.url = object.url;
-        pok.images = object.sprites || [];
-        pok.stats = object.stats || [];
-        pok.types = object.types || [];
+        // poks.url = object.url || object.moves.map( item =>move.name )
+        this.name = object.name;
+        this.url = object.url;
+        this.images = object.sprites || [];
+        this.stats = object.stats || [];
+        this.types = object.types || [];
         
         return pok;
     }

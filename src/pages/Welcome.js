@@ -12,8 +12,8 @@ class Welcome extends React.Component {
 
         this.state = {
             data: {
-                pokemon: []
-            }
+                pokemon: {}
+            } 
         }
 
         this.service = new PokemonService();
@@ -26,21 +26,27 @@ class Welcome extends React.Component {
 
         const pokemon = await this.service.find(1);
         const berrie = await this.service2.all();
-
         
-
-        // const formatedPok = await PokemonService.find(1);
-        // console.log(formatedPok);
+        this.setState({
+            data: {pokemon}      
+        });
+        
+        console.log(this.state.data.pokemon);
+        
+    
     }
     render(){
         return (
             <>
             <PokemonCard 
-                data={pokemon}/>
-            <h1>hola pato</h1>
+            pokemon={this.state.data.pokemon}/>
+            <h1>
+                hola pato
+                {this.state.data.pokemon.name}
+            </h1>
+            
             </>
-        );
-    }
+        )}
 }
 
 export default Welcome;

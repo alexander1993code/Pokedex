@@ -10,6 +10,7 @@ class PokemonService {
 
         let pokemon = new PokemonModel;
         const response = await axios.get('https://pokeapi.co/api/v2/pokemon/');
+
         
         return pokemon.getFromArray(response.data.results);
     }
@@ -19,8 +20,14 @@ class PokemonService {
         const pokemon = new PokemonModel;
 
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        
+        pokemon.getFromObject(response.data);
+        
+        const image = response.data.sprites['front_default'];
 
-        return pokemon.getFromObject(response.data);
+        pokemon.images = await axios.get(image);
+
+        return pokemon;
     }
 }
 
