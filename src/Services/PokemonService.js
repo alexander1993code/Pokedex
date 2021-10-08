@@ -24,9 +24,10 @@ class PokemonService {
         pokemon.getFromObject(response.data);
         
         const image = response.data.sprites['front_default'];
-
-        pokemon.images = await axios.get(image);
-
+        const imageShow = response.data.sprites.other.dream_world.front_default;
+        
+        pokemon.imageDetails = image;
+        pokemon.imageShow = imageShow;
         return pokemon;
     }
 }

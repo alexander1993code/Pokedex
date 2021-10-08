@@ -3,7 +3,6 @@ import PokemonService from '../Services/PokemonService.js';
 import BerriesServices from "../Services/BerriesService.js";
 import PokemonCard from "../Component/PokemonCard.jsx";
 
-
 class Welcome extends React.Component {
     
     constructor(props){
@@ -11,39 +10,34 @@ class Welcome extends React.Component {
         super(props);
 
         this.state = {
-            data: {
-                pokemon: {}
-            } 
+            data: {},
+            cualquier: '',
+            error: null,
+            loadding: false,
         }
 
         this.service = new PokemonService();
         this.service2 = new BerriesServices();
     }
-    
     async componentDidMount(){
-        
-        
+            this.setState({loadding: true, error: null});
+        try{
 
-        const pokemon = await this.service.find(1);
-        const berrie = await this.service2.all();
-        
-        this.setState({
-            data: {pokemon}      
-        });
-        
-        console.log(this.state.data.pokemon);
-        
-    
+            const pokemon = await this.service.find(1);
+            
+            const cualquier = 'holasi';
+            this.setState({data: pokemon,  cualquier: cualquier, loadding: false});
+
+        }catch(error){
+            this.setState({loadding: false, error: error});
+            console.log(error.message);
+        }
     }
     render(){
         return (
             <>
             <PokemonCard 
-            pokemon={this.state.data.pokemon}/>
-            <h1>
-                hola pato
-                {this.state.data.pokemon.name}
-            </h1>
+            pokemon={this.state.data}/>
             
             </>
         )}
