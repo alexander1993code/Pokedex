@@ -10,7 +10,9 @@ class PokemonCard extends React.Component {
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2">
                             <p>{this.props.pokemon.name}</p>
-                            <p className="bg-green-600">{this.props.pokemon.types[0].type.name}</p>
+                            <p className=" text-center ">
+                            
+                            </p>
                             
 
 

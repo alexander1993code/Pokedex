@@ -21,8 +21,23 @@ class PokemonModel {
         this.stats = object.stats || [];
         this.types = object.types || [];
         this.imageShow = object.sprites || [];
-        
+
+        if(this.types){
+            const types = this.types;
+
+            // types.forEach(function(types){
+                
+                
+            //     return  types.type.name;
+            // });
+            
+            console.log(types);
+            
+        }else{
+            console.log('no existe');
+        }
         return pok;
+        
     }
 
 }

@@ -19,8 +19,12 @@ class Welcome extends React.Component {
         this.service = new PokemonService();
         this.service2 = new BerriesServices();
     }
-    async componentDidMount(){
-            this.setState({loadding: true, error: null});
+    componentDidMount(){
+        this.fetchData();    
+    }
+
+    fetchData = async () => {
+        this.setState({loadding: true, error: null});
         try{
 
             const pokemon = await this.service.find(1);
@@ -32,7 +36,21 @@ class Welcome extends React.Component {
             this.setState({loadding: false, error: error});
             console.log(error.message);
         }
+
     }
+
+    // componentDidUpdate(prevProps, prevState){
+    //     console.log({
+    //         prevProps: prevProps,
+    //         prevState: prevState,
+    //     });
+
+    //     console.log({
+    //         props: this.props,
+    //         state: this.state,
+    //     });
+ // }
+
     render(){
         return (
             <>
