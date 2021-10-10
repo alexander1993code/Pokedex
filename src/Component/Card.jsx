@@ -1,18 +1,18 @@
 import React from "react";
-import { whithError } from "./Error/error";
 
-const PokemonCard = (pokemon) => {
+const Card = ({cardObject}) => {
+
     return (
         <>
-            <div className="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300">
+            <div className="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300 mt-2 ml-2">
                 <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2">
-                        <p>{pokemon.name}</p>
+                        <p>{cardObject.title}</p>
                         <p className=" text-center ">
 
                         </p>
                     </div>
-                    <img src={pokemon.imageShow} className="" alt="" />
+                    <img src={cardObject.image} className="" alt="" />
                 </div>
                 <div className="px-6 pt-4 pb-2">
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -30,4 +30,4 @@ const PokemonCard = (pokemon) => {
     );
 }
 
-export default whithError(PokemonCard)
+export default Card; 

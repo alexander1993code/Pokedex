@@ -1,32 +1,32 @@
 import React from "react";
 
-export class ErrorComponent extends React.Component{
+export class ErrorComponent extends React.Component {
 
     state = {
         hasError: false,
         message: ''
     }
-    
-    componentDidCatch(error){
+
+    componentDidCatch(error) {
         this.setState({
             hasError: true,
             message: error.message
         })
     }
 
-    render(){
+    render() {
 
-        if(this.state.hasError){
-            return(
+        if (this.state.hasError) {
+            return (
                 <div>
-                
-                <div className="font-medium text-red-600">
 
-                    <p>Whooops! Something went Wrong.</p>
-                    {this.state.message}
-                </div>
+                    <div className="font-medium text-red-600">
 
-                
+                        <p>Whooops! Something went Wrong.</p>
+                        {this.state.message}
+                    </div>
+
+
                 </div>
             );
         }
@@ -35,41 +35,41 @@ export class ErrorComponent extends React.Component{
 }
 
 export const whithError = (Component) => {
-    class ErrorComponent extends React.Component{
+    class ErrorComponent extends React.Component {
 
         state = {
             hasError: false,
             message: ''
         }
-        
-        componentDidCatch(error){
+
+        componentDidCatch(error) {
             this.setState({
                 hasError: true,
                 message: error.message
             })
         }
-    
-        render(){
-    
-            if(this.state.hasError){
-                return(
+
+        render() {
+
+            if (this.state.hasError) {
+                return (
                     <div>
-                    
-                    <div className="font-medium text-red-600">
-    
-                        <p>Whooops! Something went Wrong.</p>
-                        {this.state.message}
-                    </div>
-    
-                    
+
+                        <div className="font-medium text-red-600">
+
+                            <p>Whooops! Something went Wrong.</p>
+                            {this.state.message}
+                        </div>
+
+
                     </div>
                 );
             }
-            return <Component {...this.props}/>;
+            return <Component {...this.props} />;
         }
     }
 
     ErrorComponent.displayName = `whithError{${Component.displayName || Component.name}}`;
-    
+
     return ErrorComponent;
 }
