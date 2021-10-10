@@ -4,6 +4,8 @@ import { whithError } from "./Error/error";
 const PokemonCard = (pokemon) => {
     return (
         <>
+            <div className="">
+
             <div className="max-w-sm rounded overflow-hidden shadow-lg bg-gray-300">
                 <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2">
@@ -25,6 +27,7 @@ const PokemonCard = (pokemon) => {
                         #winter
                     </span>
                 </div>
+            </div>
             </div>
         </>
     );

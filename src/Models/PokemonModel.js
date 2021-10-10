@@ -23,13 +23,11 @@ class PokemonModel {
         this.imageShow = object.sprites || [];
 
         if(this.types){
-            const types = this.types;
+            let types = [];
 
-            // types.forEach(function(types){
-                
-                
-            //     return  types.type.name;
-            // });
+            this.types.forEach(function(type){
+              types.push(type.type.name);
+            });
             
             console.log(types);
             
