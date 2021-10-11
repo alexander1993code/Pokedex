@@ -5,7 +5,6 @@ import HomeBody from "../Component/home/HomeBody";
 const Home = ()=>{
     return (
         <>
-        
             <MainHeader/>        
 
             <HomeBody />

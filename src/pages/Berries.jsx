@@ -1,11 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
+import MainHeader from "../Component/MainHeader";
+import BerriesContainer from "../Component/berries/BerriesContainer";
 
-const Berris = ()=> {
-    return(
-        <>
-        <h1>Berris</h1>
+const Berries = ()=>{ 
+    return (
+        <>        
+            <MainHeader/>
+
+            <div className="grid grid-cols-4 p-2">
+                <BerriesContainer/>
+            </div>  
+            <div className="grid grid-cols-8">
+            
+            </div>   
         </>
-    );
-}
+    ); 
+}; 
 
-export default Berris;
+export default Berries;
