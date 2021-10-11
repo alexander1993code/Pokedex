@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.h-eight {
+  height: 80vh !important;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

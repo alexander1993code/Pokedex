@@ -1,43 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MainHeader from "../Component/MainHeader";
-import PokemonService from '../Services/PokemonService';
-
+import PokemonCard from "../Component/pokemon/PokemonCard";
 
 
 const Pokemon = ()=> {
-
-    const [pokemon, setPokemon] = useState({});
-    const [loading,setLoading] = useState(true);
-    const [error,setError] = useState(null);
-    const [intervalId,setIntervalID]=useState();
-    const [base,setBase]= useState('se');
-
-    const FetchData = async () =>{
-
-        setLoading(true);
-        setError(null);
-        try{
-            const pokemon = await PokemonService.all();
-
-            setPokemon(pokemon);
-            setLoading(false);
-        }catch{
-            setLoading(false);
-            setError(error);
-        }
-       
-        useEffect(setBase('hola'));
-        console.log(base);
-        const nueva = 'hola nuevo';
-        setBase(nueva);
-        console.log(base)
-    }
+    
     return(
         <>
-        <h1>{base}</h1>
         <MainHeader/>
-        
+        <div className=" container">
+            <div className="grid grid-cols-3 p-2">
+                <PokemonCard/>
+
+            </div>
+
+        </div>
         </>
+        
+        
     );
 }
 

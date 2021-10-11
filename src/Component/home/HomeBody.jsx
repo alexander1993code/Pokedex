@@ -1,4 +1,3 @@
-import { setState } from "react";
 import Card from '../Card'; 
 
 const HomeBody = ()=> {

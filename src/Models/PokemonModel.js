@@ -28,9 +28,7 @@ class PokemonModel {
             this.types.forEach(function(type){
               types.push(type.type.name);
             });
-            
-            console.log(types);
-            
+                        
         }else{
             console.log('no existe');
         }
