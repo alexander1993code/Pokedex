@@ -1,4 +1,3 @@
-import React, {useState} from "react";
 import MainHeader from "../Component/MainHeader";
 import BerriesContainer from "../Component/berries/BerriesContainer";
 
