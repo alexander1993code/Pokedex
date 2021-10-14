@@ -13,20 +13,19 @@ class PokemonModel {
     }
     getFromObject(object){
         const pok = new PokemonModel();
+        
+        pok.name = object.name;
+        pok.url = object.url;
+        pok.imageDetails = object.sprites.front_default || [];
+        pok.stats = object.stats || [];
+        pok.types = [];
+        pok.imageShow = object.sprites.other.dream_world.front_default || [];
 
-        // poks.url = object.url || object.moves.map( item =>move.name )
-        this.name = object.name;
-        this.url = object.url;
-        this.imageDetails = object.sprites || [];
-        this.stats = object.stats || [];
-        this.types = object.types || [];
-        this.imageShow = object.sprites || [];
 
-        if(this.types){
-            let types = [];
+        if(object.types){
 
-            this.types.forEach(function(type){
-              types.push(type.type.name);
+            object.types.forEach(function(type){
+              pok.types.push(type.type.name);
             });
                         
         }else{
