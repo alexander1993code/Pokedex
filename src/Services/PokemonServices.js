@@ -38,8 +38,8 @@ class PokemonServices{
     async getPokemon(firtsDataRaw, result) {
         try {
             if (firtsDataRaw.length > 0) {
-                const lastElement = firtsDataRaw.shift();
-                const secondDataRaw = await axios.get(lastElement.url);
+                const firtsElement = firtsDataRaw.shift();
+                const secondDataRaw = await axios.get(firtsElement.url);
                 const data = secondDataRaw.data;
 
                 let model = new PokemonModel();

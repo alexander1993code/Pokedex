@@ -1,0 +1,63 @@
+.bug_color{
+    background-color: greenyellow;
+}
+
+.flying{
+    background-color: skyblue;
+}
+
+.normal {
+    background-color: gainsboro;
+}
+
+.poison {
+    background-color: blueviolet;
+}
+
+.electric{
+
+    background-color: yellow;
+}
+
+.ground {
+    background-color:darkgoldenrod;
+}
+
+.fairy {
+    background-color:darksalmon;
+}
+
+.rock {
+
+    background-color:goldenrod;
+}
+
+.psychic {
+    background-color: deeppink;
+}
+
+.fighting {
+    background-color: firebrick;
+}
+
+.steel {
+
+    background-color: gray;
+}
+
+.ice {
+    background-color:lightskyblue;
+}
+
+.ghost {
+    background-color:darkmagenta;
+}
+
+.dragon {
+
+    background-color:darkorchid;
+}
+
+.dark {
+    background-color: darkslategrey;
+}

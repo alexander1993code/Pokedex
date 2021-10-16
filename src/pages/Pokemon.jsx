@@ -9,7 +9,7 @@ const Pokemon = ()=> {
         <>
         <MainHeader/>
         <div className=" container">
-            <div className="grid grid-cols-3 p-2">
+            <div className="grid grid-cols-3 p-2 bg-red-500">
                 <PokemonCard/>
 
             </div>
