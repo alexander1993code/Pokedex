@@ -5,8 +5,10 @@ const Battle = () => {
 
 
     return (
-        
+        <div id="BattlePage" className="grid grid-cols-2 h-full w-full">
+
             <ChoosePokemon />
+        </div>
     
     );
 }

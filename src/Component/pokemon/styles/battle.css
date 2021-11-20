@@ -1,0 +1,7 @@
+.battle {
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    background-image: url('../../../images/índice.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}

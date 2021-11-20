@@ -3,6 +3,8 @@ import ids from './search';
 import PokemonServices from '../../Services/PokemonServices';
 import PokemonModel from '../../Models/PokemonModel';
 import ToBatle from './ToBatle';
+import BatleCpu from './BatleCpu';
+import './styles/battle.css';
 
 const ChoosePokemon = (pokemon) => {
 
@@ -17,7 +19,9 @@ const ChoosePokemon = (pokemon) => {
 
     let rand = choosePokemon[Math.floor(Math.random() * choosePokemon.length)];
     setCpu(rand);
-
+    let container = document.getElementById("BattlePage");
+    console.log(container);
+    container.classList.add('battle');
   }
   useEffect(async () => {
     if (ids) {
@@ -49,13 +53,15 @@ const ChoosePokemon = (pokemon) => {
   }
   return (
     <>
+    <div className="col-span-2">
       {loading && <h1>cargando</h1>}
       {!loading && pokemonToBatle.length === 0 ? <h1 className="text-center mt-10 text-3xl text-gray-800 font-serif">Hi!! Chose a Pokemon to batle!</h1> : null}
       {!loading && pokemonToBatle.length === 0 ? choosePokemon.map((pokemon) => <Chose key={pokemon.id} pokemon={pokemon} />) : null}
 
       {pokemonToBatle.length === 0 ? null : <ToBatle pokemon={pokemonToBatle} />}
 
-      {cpu.length === 0 ? null : <ToBatle pokemon={cpu} />}
+      {cpu.length === 0 ? null : <BatleCpu pokemon={cpu} />}
+    </div>
     </>
   );
 
