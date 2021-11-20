@@ -77,7 +77,7 @@ const BerriesContainer = () => {
         let size = paginate.results.length;
 
         document.querySelector("#berrieContainerChild")
-            .scroll({ top: 0 })
+            .scroll({ top: 200 })
 
         if (size > 0) {
             const observer = new IntersectionObserver((event) => intersectionObserverHandler(event, paginate), {

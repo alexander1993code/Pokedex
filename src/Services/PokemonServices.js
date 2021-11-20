@@ -38,13 +38,16 @@ class PokemonServices{
     async getPokemon(firtsDataRaw, result) {
         try {
             if (firtsDataRaw.length > 0) {
+
+                // GET EACH OF THE POKEMONS
                 const firtsElement = firtsDataRaw.shift();
                 const secondDataRaw = await axios.get(firtsElement.url);
                 const data = secondDataRaw.data;
-
+                
+                //CREATE THE MODEL AND ADD THEIR PROPS
                 let model = new PokemonModel();
                 const pok = model.getFromObject(data);
-                
+                pok.getStats(pok);
                 result.data.push(pok);
 
                 await this.getPokemon(firtsDataRaw, result);
@@ -60,18 +63,9 @@ class PokemonServices{
 
     async find(url){
         
-        const pokemon = new PokemonModel();
-
         const response = await axios.get(url);
         
-        pokemon.getFromObject(response.data);
-        
-        const image = response.data.sprites['front_default'];
-        const imageShow = response.data.sprites.other.dream_world.front_default;
-        
-        pokemon.imageDetails = image;
-        pokemon.imageShow = imageShow;
-        return pokemon;
+        return response.data;
     }
 }
 

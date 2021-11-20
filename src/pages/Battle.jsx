@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import MainHeader from "../Component/MainHeader";
+import ChoosePokemon from "../Component/pokemon/ChoosePokemon";
 
-const Battle = ()=> {
-    return(
+const Battle = () => {
+
+    
+    return (
         <>
-        <h1>balte</h1>
+            <MainHeader />
+            <ChoosePokemon />
         </>
     );
 }

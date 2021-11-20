@@ -1,6 +1,14 @@
-
+import React, {useContext} from "react";
+import AppContext from '../context/AppContext';
+import useInitialState from '../hooks/useInitialState';
 
 const MainHeader = () => {
+    const {state, removeFavorites} = useContext(AppContext);
+    
+    const removeOfFavorite = favorite => ()=>{
+        removeFavorites(favorite);
+    }
+    const { favorites } = state;
     return (
         <>
             <nav className="flex items-center justify-between flex-wrap bg-red-600 p-6">
@@ -16,7 +24,7 @@ const MainHeader = () => {
                 <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                     <div className="text-sm lg:flex-grow">
                         <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                            Pokimons
+                            Pokemons
                         </a>
                         <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                             Berries
@@ -24,15 +32,16 @@ const MainHeader = () => {
                         <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                             Objects
                         </a>
-                        <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                        <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                             Battles
                         </a>
+                        
+                            {favorites.length > 0 && <div>{favorites.map(item => <button onClick={removeOfFavorite(item)} className="hover:text-white">{item.name}</button>)}</div>}
+                        
                     </div>
                 </div>
             </nav>
         </>
     );
 };
-
-
 export default MainHeader;
