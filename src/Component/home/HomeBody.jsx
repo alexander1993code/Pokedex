@@ -4,7 +4,7 @@ const HomeBody = ()=> {
     const menus = [
         {
             link: '/pokemon',
-            title: 'Pokimons',
+            title: 'Pokemons',
             image: 'https://w7.pngwing.com/pngs/219/953/png-transparent-pokemon-red-and-blue-pokemon-firered-and-leafgreen-misty-kanto-pokedex-jinbe-gadget-electronic-device-pokemon.png',
 
         },
@@ -20,11 +20,11 @@ const HomeBody = ()=> {
         }
     ]; 
 
-    return (<>
+    return (
         <div className="grid grid-cols-3">
             {menus.map((item, i) => <Card cardObject={item} key={i} /> )}
         </div>
-    </>); 
+    ); 
 }
 
 export default HomeBody;

@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import AppContext from '../context/AppContext';
-import useInitialState from '../hooks/useInitialState';
 
 const MainHeader = () => {
     const {state, removeFavorites} = useContext(AppContext);

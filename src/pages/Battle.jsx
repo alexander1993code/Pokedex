@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
-import MainHeader from "../Component/MainHeader";
+import React from "react";
 import ChoosePokemon from "../Component/pokemon/ChoosePokemon";
 
 const Battle = () => {
 
-    
+
     return (
-        <>
-            <MainHeader />
+        
             <ChoosePokemon />
-        </>
+    
     );
 }
 

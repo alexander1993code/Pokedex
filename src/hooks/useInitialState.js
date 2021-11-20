@@ -15,7 +15,7 @@ const useInitialState = ()=> {
         
         setState({
             ...state,
-            favorites: state.favorites.filter(items => items.name != payload.name)
+            favorites: state.favorites.filter(items => items.name !== payload.name)
         });
     }
 

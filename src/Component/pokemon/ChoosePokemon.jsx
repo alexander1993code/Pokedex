@@ -1,23 +1,23 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ids from './search';
 import PokemonServices from '../../Services/PokemonServices';
 import PokemonModel from '../../Models/PokemonModel';
-import {ExampleCard} from './ExampleCard';
+import ToBatle from './ToBatle';
 
 const ChoosePokemon = (pokemon) => {
 
   let [choosePokemon, setChoosePokemon] = useState([]);
   let [loading, setLoading] = useState(true);
   let [pokemonToBatle, setPokemonToBatle] = useState([]);
-  let [cpu, setCpu]= useState([]);
+  let [cpu, setCpu] = useState([]);
 
-  const handleChosePokemon = (pokemon)=> {
-  
+  const handleChosePokemon = (pokemon) => {
+
     setPokemonToBatle(pokemon);
-    
-      let rand = choosePokemon[Math.floor(Math.random() * choosePokemon.length)];
-      setCpu(rand);
-          
+
+    let rand = choosePokemon[Math.floor(Math.random() * choosePokemon.length)];
+    setCpu(rand);
+
   }
   useEffect(async () => {
     if (ids) {
@@ -33,15 +33,15 @@ const ChoosePokemon = (pokemon) => {
       setChoosePokemon(all);
       setLoading(false);
     }
-    
+
   }, [])
   const Chose = ({ pokemon }) => {
     return (
       <>
         <div className="inline-block ml-5 mt-10">
-          <button onClick={(e)=> handleChosePokemon(pokemon)}>
+          <button onClick={(e) => handleChosePokemon(pokemon)}>
 
-          <img src={pokemon.imageDetails} alt={pokemon.name} />
+            <img src={pokemon.imageDetails} alt={pokemon.name} />
           </button>
         </div>
       </>
@@ -50,12 +50,12 @@ const ChoosePokemon = (pokemon) => {
   return (
     <>
       {loading && <h1>cargando</h1>}
-      {!loading && pokemonToBatle.length == 0 ? <h1 className="text-center mt-10 text-3xl text-gray-800 font-serif">Hi!! Chose a Pokemon to batle!</h1> : null}
-      {!loading && pokemonToBatle.length == 0 ? choosePokemon.map((pokemon) =><Chose key={pokemon.id} pokemon={pokemon}/>) : null }
-      
-      {pokemonToBatle.length == 0 ? null : <ExampleCard pokemon={pokemonToBatle}/> }
+      {!loading && pokemonToBatle.length === 0 ? <h1 className="text-center mt-10 text-3xl text-gray-800 font-serif">Hi!! Chose a Pokemon to batle!</h1> : null}
+      {!loading && pokemonToBatle.length === 0 ? choosePokemon.map((pokemon) => <Chose key={pokemon.id} pokemon={pokemon} />) : null}
 
-      {cpu.length == 0 ? null : <ExampleCard pokemon={cpu}/>}
+      {pokemonToBatle.length === 0 ? null : <ToBatle pokemon={pokemonToBatle} />}
+
+      {cpu.length === 0 ? null : <ToBatle pokemon={cpu} />}
     </>
   );
 

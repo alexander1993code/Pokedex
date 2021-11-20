@@ -7,26 +7,30 @@ import Berries from "./pages/Berries.jsx";
 import Battle from "./pages/Battle.jsx";
 import AppContext from "./context/AppContext.js";
 import useInitialState from "./hooks/useInitialState.js";
+import Layout from "./layout/Layout.jsx";
 
-function App(){
+function App() {
   const initialState = useInitialState();
-    return (
-      <AppContext.Provider value={initialState}>
-          <BrowserRouter>
-            <Switch>
-              <Route exact path="/" component={Home}/>             
-              <Route exact path="/pokemon" component={Pokemon}/>
-              <Route exact path="/berries" component={Berries}/>
-              <Route exact path="/battle" component={Battle}/>
-              <Route path="/404" component={Error} />
-              <Redirect from="*" to="/404" />
-            </Switch>      
-              
-          </BrowserRouter>
-      </AppContext.Provider>
-          
-        
-    );
+  return (
+    <AppContext.Provider value={initialState}>
+      <BrowserRouter>
+        <Layout>
+
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/pokemon" component={Pokemon} />
+            <Route exact path="/berries" component={Berries} />
+            <Route exact path="/battle" component={Battle} />
+            <Route path="/404" component={Error} />
+            <Redirect from="*" to="/404" />
+          </Switch>
+        </Layout>
+
+      </BrowserRouter>
+    </AppContext.Provider>
+
+
+  );
 }
 
 export default App;
